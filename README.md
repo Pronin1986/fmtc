@@ -32,7 +32,13 @@ The fmtc overrides the print functions of the fmt package, but with the ability 
 <bg color="grey"></bg> 		- grey background color
 <bg color="white"></bg> 	- white background color
 ```
-### Exapmles:
+
+### Install:
+```bash
+go get golang.org/x/net/html && go get github.com/Pronin1986/fmtc
+```
+
+### Usage:
 ```golang
 fmtc.Print("<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>")
 fmtc.Println("<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>")
@@ -54,4 +60,24 @@ fmtc.Fprintf(buf, "<b>%v <blue>%v</blue> <bg color=\"green\">%v</bg></b>", "HELL
 
 You have already decorated text for console output like a picture above: 
 
-![Image of fmtc work](http://www.pronin86.ru/git/fmtc/example.png)
+![UsageExampleResult](http://www.pronin86.ru/git/fmtc/example.png)
+
+### Example:
+
+```golang
+package main
+
+import (
+	"fmt"
+
+	"github.com/Pronin1986/fmtc"
+)
+
+func main() {
+	fmt.Println("HELLO WORLD")
+	fmtc.Println("<b>HELLO <blue>WORLD</blue></b>")
+}
+```
+
+![ExampleResult](http://www.pronin86.ru/git/fmtc/example2.png)
+
