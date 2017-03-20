@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 /*
-	The fmtc package overrides the print functions of the fmt package, but with the ability to color output in bash using HTML tags
+	The fmtc overrides the print functions of the fmt package, but with the ability to color output in bash using HTML tags
 
 	Available text decoration tags:
 			<b></b>			 		- make font Bold
