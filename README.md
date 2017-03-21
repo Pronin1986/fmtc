@@ -35,7 +35,7 @@ The fmtc overrides the print functions of the fmt package, but with the ability 
 
 ### Install:
 ```bash
-go get golang.org/x/net/html && go get github.com/Pronin1986/fmtc
+go get github.com/Pronin1986/fmtc
 ```
 
 ### Usage:
