@@ -5,6 +5,7 @@
 package fmtc
 
 import (
+	"regexp"
 	"strings"
 	"unicode/utf8"
 
@@ -173,10 +174,15 @@ func applyOpenedTags(tagsStack stack) string {
 // It returns the code of current tag
 func getASCICode(tag tag) string {
 	code := ""
+	var validShortBG = regexp.MustCompile(`^b_([A-Za-z]+)$`)
+
 	if tag.name == "bg" {
 		if color, ok := tag.attr["color"]; ok {
 			code = background[color]
 		}
+	} else if validShortBG.MatchString(tag.name) {
+		bgColor := validShortBG.FindStringSubmatch(tag.name)
+		code = background[bgColor[1]]
 	} else {
 		code = fontStyle[tag.name]
 	}

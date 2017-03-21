@@ -33,6 +33,16 @@
 			<bg color="grey"></bg> 		- grey background color
 			<bg color="white"></bg> 	- white background color
 
+			<b_black></b_black> 		- black background color
+			<b_red></b_red>		 		- red background color
+			<b_green></b_green>		 	- green background color
+			<b_yellow></b_yellow>		- yellow background color
+			<b_blue></b_blue>			- blue background color
+			<b_magenta></b_magenta>		- magenta background color
+			<b_cyan></b_cyan>			- cyan background color
+			<b_grey></b_grey>			- grey background color
+			<b_white></b_white>			- white background color
+
 	Examples:
 
 		fmtc.Print("<b>HELLO <blue>WORLD</blue></b>")
