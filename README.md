@@ -8,7 +8,7 @@ The fmtc overrides the print functions of the fmt package, but with the ability 
 <strong></strong>     - make font Bold
 <u></u>               - make text Underlined
 <dim></dim>           - make font Dim
-<reverse></reverse>   - Reverse background anf font color
+<reverse></reverse>   - Reverse background and font color
 <blink></blink>       - make text Blink (not working on Mint/Ubuntu)
 <black></black>       - set font color Black (Dark)
 <red></red>           - set font color Red
