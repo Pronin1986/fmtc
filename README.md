@@ -40,22 +40,22 @@ go get golang.org/x/net/html && go get github.com/Pronin1986/fmtc
 
 ### Usage:
 ```golang
-fmtc.Print("<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>")
-fmtc.Println("<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>")
-fmtc.Printf("<b>%v <blue>%v</blue> <bg color=\"green\">%v</bg></b>", "HELLO", "BLUE", "TEXT")
+fmtc.Print(`<b>HELLO <blue>BLUE</blue> <bg color="green">TEXT</bg></b>`)
+fmtc.Println(`<b>HELLO <blue>BLUE</blue> <bg color="green">TEXT</bg></b>`)
+fmtc.Printf(`<b>%v <blue>%v</blue> <bg color="green">%v</bg></b>`, "HELLO", "BLUE", "TEXT")
 ```
 
 ```golang
-got: = fmtc.Sprint("<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>")
-got = fmtc.Sprintln("<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>")
-got = fmtc.Sprintf("<b>%v <blue>%v</blue> <bg color=\"green\">%v</bg></b>", "HELLO", "BLUE", "TEXT")
+got: = fmtc.Sprint(`<b>HELLO <blue>BLUE</blue> <bg color="green">TEXT</bg></b>`)
+got = fmtc.Sprintln(`<b>HELLO <blue>BLUE</blue> <bg color="green">TEXT</bg></b>`)
+got = fmtc.Sprintf(`<b>%v <blue>%v</blue> <bg color="green">%v</bg></b>`, "HELLO", "BLUE", "TEXT")
 ```
 
 ```golang
 buf := new(bytes.Buffer)
-fmtc.Fprint(buf, "<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>")
-fmtc.Fprintln(buf, "<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>")
-fmtc.Fprintf(buf, "<b>%v <blue>%v</blue> <bg color=\"green\">%v</bg></b>", "HELLO", "BLUE", "TEXT")
+fmtc.Fprint(buf, `<b>HELLO <blue>BLUE</blue> <bg color="green">TEXT</bg></b>`)
+fmtc.Fprintln(buf, `<b>HELLO <blue>BLUE</blue> <bg color="green">TEXT</bg></b>`)
+fmtc.Fprintf(buf, `<b>%v <blue>%v</blue> <bg color="green">%v</bg></b>`, "HELLO", "BLUE", "TEXT")
 ```
 
 You have already decorated text for console output like a picture above: 
