@@ -75,12 +75,23 @@ func TestGetASCICode(t *testing.T) {
 	}
 }
 
-// create test data
-func createTestStack() stack {
-	oneTag := tag{name: "h1"}
-	tagStack := stack{}
-	tagStack.push(oneTag)
-	return tagStack
+func TestDecorate(t *testing.T) {
+	someVar := "SOME TEXT"
+	var tests = []struct {
+		want string
+		got  string
+	}{
+		{"<b>BOLD</b>", "\033[1mBOLD\033[0m\033[0m"},
+		{"<b>" + someVar + "</b>", "\033[1m" + someVar + "\033[0m\033[0m"},
+		{"<b>BOLD <blue>BLUE</blue></b>", "\033[1mBOLD \033[34mBLUE\033[0m\033[1m\033[0m\033[0m"},
+		{"<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>", "\033[1mHELLO \033[34mBLUE\033[0m\033[1m \033[42mTEXT\033[0m\033[1m\033[0m\033[0m"},
+	}
+
+	for _, test := range tests {
+		if decorate(test.want) != test.got {
+			t.Errorf("decorate(\"%v\") != ' %v '", test.want, test.got)
+		}
+	}
 }
 
 func TestPrint(t *testing.T) {
@@ -109,11 +120,13 @@ func TestPrintf(t *testing.T) {
 }
 
 func TestSprint(t *testing.T) {
+	someVar := "SOME TEXT"
 	var tests = []struct {
 		want string
 		got  string
 	}{
 		{"<b>BOLD</b>", "\033[1mBOLD\033[0m\033[0m"},
+		{"<b>" + someVar + "</b>", "\033[1m" + someVar + "\033[0m\033[0m"},
 		{"<b>BOLD <blue>BLUE</blue></b>", "\033[1mBOLD \033[34mBLUE\033[0m\033[1m\033[0m\033[0m"},
 		{"<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>", "\033[1mHELLO \033[34mBLUE\033[0m\033[1m \033[42mTEXT\033[0m\033[1m\033[0m\033[0m"},
 	}
@@ -126,11 +139,13 @@ func TestSprint(t *testing.T) {
 }
 
 func TestSprintln(t *testing.T) {
+	someVar := "SOME TEXT"
 	var tests = []struct {
 		want string
 		got  string
 	}{
 		{"<b>BOLD</b>", "\033[1mBOLD\033[0m\033[0m\n"},
+		{"<b>" + someVar + "</b>", "\033[1m" + someVar + "\033[0m\033[0m\n"},
 		{"<b>BOLD <blue>BLUE</blue></b>", "\033[1mBOLD \033[34mBLUE\033[0m\033[1m\033[0m\033[0m\n"},
 		{"<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>", "\033[1mHELLO \033[34mBLUE\033[0m\033[1m \033[42mTEXT\033[0m\033[1m\033[0m\033[0m\n"},
 	}
@@ -153,12 +168,14 @@ func TestSprintf(t *testing.T) {
 }
 
 func TestFprint(t *testing.T) {
+	someVar := "SOME TEXT"
 	var tests = []struct {
 		want string
 		got  string
 	}{
 		{"HELLO", "HELLO\033[0m"},
 		{"<b>BOLD</b>", "\033[1mBOLD\033[0m\033[0m"},
+		{"<b>" + someVar + "</b>", "\033[1m" + someVar + "\033[0m\033[0m"},
 		{"<b>BOLD <blue>BLUE</blue></b>", "\033[1mBOLD \033[34mBLUE\033[0m\033[1m\033[0m\033[0m"},
 		{"<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>", "\033[1mHELLO \033[34mBLUE\033[0m\033[1m \033[42mTEXT\033[0m\033[1m\033[0m\033[0m"},
 	}
@@ -173,12 +190,14 @@ func TestFprint(t *testing.T) {
 }
 
 func TestFprintln(t *testing.T) {
+	someVar := "SOME TEXT"
 	var tests = []struct {
 		want string
 		got  string
 	}{
 		{"HELLO", "HELLO\033[0m\n"},
 		{"<b>BOLD</b>", "\033[1mBOLD\033[0m\033[0m\n"},
+		{"<b>" + someVar + "</b>", "\033[1m" + someVar + "\033[0m\033[0m\n"},
 		{"<b>BOLD <blue>BLUE</blue></b>", "\033[1mBOLD \033[34mBLUE\033[0m\033[1m\033[0m\033[0m\n"},
 		{"<b>HELLO <blue>BLUE</blue> <bg color=\"green\">TEXT</bg></b>", "\033[1mHELLO \033[34mBLUE\033[0m\033[1m \033[42mTEXT\033[0m\033[1m\033[0m\033[0m\n"},
 	}
